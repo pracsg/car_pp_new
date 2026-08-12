@@ -3,6 +3,7 @@
 # Machine Learning + Gradio UI
 # ============================================================
 
+import os
 import pandas as pd
 import gradio as gr
 
@@ -258,5 +259,10 @@ interface = gr.Interface(
 # 12. LAUNCH GRADIO APP
 # ============================================================
 
-interface.launch()
+port = int(os.environ.get("PORT", 8000))
+
+interface.launch(
+    server_name="0.0.0.0",
+    server_port=port
+)
 
